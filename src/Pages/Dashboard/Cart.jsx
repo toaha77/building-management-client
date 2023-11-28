@@ -7,6 +7,7 @@ import UseCart from "../../Hooks/UseCart";
 
 const Cart = () => {
   const [cart, refetch] = UseCart();
+  console.log(cart);
   const totalRent = cart.reduce((acc, cur) => acc + cur.rent, 0);
   const axiosSecure = UseAxiosSecure();
 
@@ -37,7 +38,7 @@ const Cart = () => {
 
   return (
     <div className="">
-      <div className="flex justify-evenly  mb-8">
+      <div className="text-center mb-8">
         <h2 className="text-4xl">Items: {cart.length}</h2>
         <h2 className="text-4xl">Total Rent: ${totalRent}</h2>
       </div>
@@ -52,6 +53,7 @@ const Cart = () => {
               <th>Rent</th>
               <th>Payment</th>
               <th>Action</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -91,6 +93,7 @@ const Cart = () => {
                     <FaTrashAlt className="text-red-600"></FaTrashAlt>
                   </button>
                 </th>
+                <th>Pending</th>
               </tr>
             ))}
           </tbody>

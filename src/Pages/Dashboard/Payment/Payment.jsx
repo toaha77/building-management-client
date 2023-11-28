@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckOut from "./CheckOut";
  
  const stripePromise = loadStripe('pk_test_51OEwPLEKHE0LhNDOTGJwgj601wPcefM9gzfSG5kRfmKmKugagpEkLnXgDj4cmFKoYfzTCjaj33d6UeQlxA3aBMcs007MWYC4tY')
+ 
 const Payment = () => {
      return (
         <div>

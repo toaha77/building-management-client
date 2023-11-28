@@ -1,6 +1,5 @@
 import {
-  FaAnchor,
-  FaBook,
+   FaBook,
   FaHome,
   FaImage,
   FaList,
@@ -83,20 +82,14 @@ const Dashboard = () => {
           Home
         </NavLink>
       </li>
-
-      <li>
-        <NavLink to="/dashboard/announce">
-          <FaAnchor></FaAnchor>
-          Announcements
-        </NavLink>
-      </li>
+ 
     </>
   );
 
   return (
     <div className="drawer">
       <Helmet>
-        RentalPlace - DashBoard
+       <title>RentalPlace - DashBoard</title>
       </Helmet>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">

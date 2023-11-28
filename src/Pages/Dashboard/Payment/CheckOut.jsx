@@ -10,6 +10,7 @@ import UseCart from "../../../Hooks/UseCart";
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  console.log(clientSecret);
   const [transactionId, setTransactionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -18,8 +19,9 @@ const CheckoutForm = () => {
   const [cart, refetch] = UseCart();
   const navigate = useNavigate();
 
-  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-
+  const totalPrice = cart.reduce((total, item) => total + item.rent, 0);
+  console.log(cart);
+ console.log(totalPrice);
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -45,7 +47,7 @@ const CheckoutForm = () => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.confirmCardPayment({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
@@ -84,9 +86,9 @@ const CheckoutForm = () => {
           email: user.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
-          date: new Date(), // utc date convert. use moment js to
+          date: new Date(),  
           cartIds: cart.map((item) => item._id),
-          // menuItemIds: cart.map((item) => item.menuId),
+           
           status: "pending",
           
         };
@@ -98,7 +100,7 @@ const CheckoutForm = () => {
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Thank you",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -126,7 +128,7 @@ const CheckoutForm = () => {
             />
           </div>
           <div className="form-control w-1/2">
-            <label htmlFor="pet-select">Choose a Month:</label>
+            <label className="mb-3" htmlFor="pet-select">Choose a Month:</label>
 
             <select className="input input-bordered" name="pets">
               <option  value="">--Please choose a Month--</option>
