@@ -1,0 +1,110 @@
+[
+    {
+      "image": "https://i.ibb.co/MBVzv5v/med-badr-chemmaoui-xt-Dp-Xi-a-YQ-unsplash.jpg",
+      "floor_no": 2,
+      "block_name": "A",
+      "apartment_no": 101,
+      "rent": 1200
+      
+    },
+    {
+      "image": "https://i.ibb.co/8grkkN3/point3d-commercial-imaging-ltd-ae-Tex-YQKsuk-unsplash.jpg",
+      "floor_no": 5,
+      "block_name": "B",
+      "apartment_no": 205,
+      "rent": 1500 
+    },
+    {
+      "image": "https://i.ibb.co/jzskcgc/nastuh-abootalebi-y-Wwob8kw-OCk-unsplash.jpg",
+      "floor_no": 1,
+      "block_name": "C",
+      "apartment_no": 102,
+      "rent": 1000 
+    },
+    {
+      "image": "https://i.ibb.co/NFps1Px/point3d-commercial-imaging-ltd-6-Gru-B-1-L9k-E-unsplash.jpg",
+      "floor_no": 3,
+      "block_name": "D",
+      "apartment_no": 301,
+      "rent": 1800
+    },
+    {
+      "image": "https://i.ibb.co/XDqqrJX/huy-nguyen-9vvp-nu-Va-Jk-unsplash.jpg",
+      "floor_no": 4,
+      "block_name": "A",
+      "apartment_no": 402,
+      "rent": 1600
+    },
+    {
+      "image": "https://i.ibb.co/Ttg4SMj/minh-pham-7p-CFUyb-P-P8-unsplash.jpg",
+      "floor_no": 6,
+      "block_name": "B",
+      "apartment_no": 601,
+      "rent": 2000 
+    },
+    {
+      "image": "https://i.ibb.co/R7j6qj5/ionut-vlad-id-XQEOxhmv-U-unsplash.jpg",
+      "floor_no": 2,
+      "block_name": "C",
+      "apartment_no": 202,
+      "rent": 1200
+    },
+    {
+      "image": "https://i.ibb.co/bm2Wsg5/jarek-ceborski-jn7u-Ve-Cdf6-U-unsplash.jpg",
+      "floor_no": 5,
+      "block_name": "D",
+      "apartment_no": 501,
+      "rent": 1700
+    },
+    {
+      "image": "https://i.ibb.co/H7wPN9g/point3d-commercial-imaging-ltd-Cu2x-ZLKgn10-unsplash.jpg",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 103,
+      "rent": 1100
+    },
+    {
+      "image": "https://i.ibb.co/7tNJD8P/huy-nguyen-AB-q9lw-CVv8-unsplash.jpg",
+      "floor_no": 3,
+      "block_name": "B",
+      "apartment_no": 302,
+      "rent": 1900
+    },
+    {
+      "image": "https://i.ibb.co/fHXS48D/frames-for-your-heart-Fqqi-Av-Jejto-unsplash.jpg",
+      "floor_no": 4,
+      "block_name": "C",
+      "apartment_no": 401,
+      "rent": 1600
+    },
+    {
+      "image": "https://i.ibb.co/Z1JdbZc/patrick-perkins-i-Ri-Vz-ALa4p-I-unsplash.jpg",
+      "floor_no": 6,
+      "block_name": "D",
+      "apartment_no": 602,
+      "rent": 2100
+    },
+    {
+      "image": "https://i.ibb.co/SxLFgCH/francesca-tosolini-t-Hk-JAMc-O3-QE-unsplash-1.jpg",
+      "floor_no": 2,
+      "block_name": "A",
+      "apartment_no": 201,
+      "rent": 1300
+    },
+    {
+      "image": "https://i.ibb.co/XDr71rW/patrick-perkins-3wyl-Drjx-H-E-unsplash.jpg",
+      "floor_no": 5,
+      "block_name": "B",
+      "apartment_no": 502,
+      "rent": 1800
+    },
+    {
+      "image": "https://i.ibb.co/SxLFgCH/francesca-tosolini-t-Hk-JAMc-O3-QE-unsplash-1.jpg",
+      "floor_no": 1,
+      "block_name": "C",
+      "apartment_no": 101,
+      "rent": 1200 
+    }
+     
+  ]
+  
