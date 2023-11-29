@@ -7,6 +7,7 @@ import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import UseAuth from "../../../Hooks/useAuth";
 import UseCart from "../../../Hooks/UseCart";
 
+
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -20,8 +21,7 @@ const CheckoutForm = () => {
   const navigate = useNavigate();
 
   const totalPrice = cart.reduce((total, item) => total + item.rent, 0);
-  console.log(cart);
- console.log(totalPrice);
+  console.log(totalPrice);
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -60,8 +60,7 @@ const CheckoutForm = () => {
       setError("");
     }
 
-    // confirm payment
-    const { paymentIntent, error: confirmError } =
+     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
@@ -74,14 +73,12 @@ const CheckoutForm = () => {
 
     if (confirmError) {
       console.log("confirm error");
+      setError(error)
     } else {
-      console.log("payment intent", paymentIntent);
-      if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
-        setTransactionId(paymentIntent.id);
+       if (paymentIntent.status === "succeeded") {
+          setTransactionId(paymentIntent.id);
 
-        // now save the payment in the database
-        const payment = {
+         const payment = {
           pets,
           email: user.email,
           price: totalPrice,
@@ -94,8 +91,7 @@ const CheckoutForm = () => {
         };
 
          const res = await axiosSecure.post("/payments", payment);
-        console.log("payment saved", res.data);
-        refetch();
+         refetch();
         if (res.data?.paymentResult?.insertedId) {
           Swal.fire({
             position: "top-center",

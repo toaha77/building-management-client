@@ -7,8 +7,7 @@ import UseCart from "../../Hooks/UseCart";
 
 const Cart = () => {
   const [cart, refetch] = UseCart();
-  console.log(cart);
-  const totalRent = cart.reduce((acc, cur) => acc + cur.rent, 0);
+   const totalRent = cart.reduce((acc, cur) => acc + cur.rent, 0);
   const axiosSecure = UseAxiosSecure();
 
   const handleDelete = (id) => {
@@ -76,7 +75,7 @@ const Cart = () => {
                 <td>${item.rent}</td>
                 <th>
                   {cart.length ? (
-                    <Link to={`/dashboard/payment`}>
+                    <Link to={`/dashboard/payment/${item._id}`}>
                       <button className="btn bg-green-500">Pay</button>
                     </Link>
                   ) : (

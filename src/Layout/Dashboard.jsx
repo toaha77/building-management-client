@@ -19,7 +19,7 @@ const Dashboard = () => {
       {isAdmin ? (
         <>
           <li>
-            <NavLink to="/dashboard/adminHome">
+            <NavLink to="/dashboard/profile">
               <FaHome></FaHome>
               Admin Profile
             </NavLink>
@@ -48,7 +48,7 @@ const Dashboard = () => {
         <>
            
           <li>
-            <NavLink to="/dashboard/history">
+            <NavLink to="/dashboard/profile">
               <FaImage></FaImage>
               My Profile
             </NavLink>

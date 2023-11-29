@@ -137,7 +137,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={user?.photoURL} alt={user.displayName} />
+                  <img src={user?.photoURL} alt={user?.displayName} />
                 </div>
               </label>
               <ul
@@ -146,11 +146,11 @@ const Navbar = () => {
               >
                 <li>
                   <button className="btn btn-sm  btn-ghost">
-                    {user.displayName}
+                    {user?.displayName}
                   </button>
                 </li>
                 <li>
-                 <Link to='/dashboard'>
+                 <Link to='/dashboard/profile'>
                  <button className="btn btn-sm  btn-ghost">
                     Dashboard
                   </button>

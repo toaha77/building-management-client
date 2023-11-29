@@ -9,7 +9,12 @@ import Cart from "../Pages/Dashboard/Cart";
 import AllUsers from "../Pages/AllUsers/AllUsers";
 import SignUp from "../Pages/SignUp/SignUp";
 import Payment from "../Pages/Dashboard/Payment/Payment";
- 
+import PaymentHistory from "../Pages/Dashboard/Payment/PaymentHistory";
+
+import PrivateRoute from "../Routes/PrivateRoute"
+import UserProfile from "../Pages/Dashboard/UserProfile";
+import Announcements from "../Pages/Dashboard/Announcements";
+import AdminRoute from "./AdminRoute";
  
  const Route = createBrowserRouter([
      {
@@ -34,18 +39,34 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
      },
      {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            {
+                path: 'profile',
+                element: <UserProfile></UserProfile>
+            },
             {
                 path: 'cart',
                 element : <Cart></Cart>
-            },{
-                path: 'users',
-                element: <AllUsers></AllUsers>
+            },
+           
+            {
+                path: 'payment/:id',
+                element: <Payment></Payment>
             },
             {
-                path: 'payment',
-                element: <Payment></Payment>
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
+            },
+
+            // admin route
+            {
+                path: 'announcements',
+                element: <AdminRoute><Announcements></Announcements></AdminRoute>
+            },
+            {
+                path: 'users',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
         ]
      },

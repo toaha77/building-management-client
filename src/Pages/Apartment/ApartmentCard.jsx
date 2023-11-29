@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import SingleApartment from "./SingleApartment";
-import { useLoaderData } from "react-router-dom";
-
+ import SingleApartment from "./SingleApartment";
+ 
  
 const ApartmentCard = ({apartments}) => {
      
