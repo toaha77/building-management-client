@@ -15,6 +15,7 @@ import PrivateRoute from "../Routes/PrivateRoute"
 import UserProfile from "../Pages/Dashboard/UserProfile";
 import Announcements from "../Pages/Dashboard/Announcements";
 import AdminRoute from "./AdminRoute";
+import ShowAnnounce from "../Pages/Dashboard/ShowAnnounce";
  
  const Route = createBrowserRouter([
      {
@@ -57,6 +58,10 @@ import AdminRoute from "./AdminRoute";
             {
                 path: 'paymentHistory',
                 element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: 'announce',
+                element: <ShowAnnounce></ShowAnnounce>
             },
 
             // admin route

@@ -1,9 +1,26 @@
 import { useForm } from "react-hook-form";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
 
 const Announcements = () => {
+    const axiosSecure = UseAxiosSecure()
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async(data) => {
+     const announceItem = {
+       title:  data.title,
+       description: data.description 
+
+    }
+    const announce = await axiosSecure.post('/announcement' , announceItem)
+    if (announce.data.insertedId) {
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: `${data.title} is added to the Announcement.`,
+            showConfirmButton: false,
+            timer: 1500
+          }); 
+    }
   };
   return (
     <div className="mt-4">
@@ -17,7 +34,7 @@ const Announcements = () => {
             <input
               type="text"
               placeholder="Type Here"
-              {...register("name", { required: true })}
+              {...register("title", { required: true })}
               required
               className="input input-bordered w-full"
             />

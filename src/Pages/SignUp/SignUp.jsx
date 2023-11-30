@@ -47,7 +47,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Sign Up</title>
+        <title>RentalPlace - Sign Up</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -141,7 +141,7 @@ const SignUp = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn bg-green-500 "
+                  className="btn bg-green-500 hover:bg-green-500"
                   type="submit"
                   value="Sign Up"
                 />

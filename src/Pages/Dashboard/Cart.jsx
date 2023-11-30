@@ -43,8 +43,7 @@ const Cart = () => {
       </div>
       <div className="overflow-x-auto">
         <table className="table  w-full">
-          {/* head */}
-          <thead>
+           <thead>
             <tr>
               <th>#</th>
               <th>Image</th>

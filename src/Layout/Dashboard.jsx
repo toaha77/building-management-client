@@ -55,7 +55,7 @@ const Dashboard = () => {
           </li>
 
           <li>
-            <NavLink to="/dashboard/payment">
+            <NavLink to="/dashboard/payment/:id">
               <FaMoneyBill></FaMoneyBill>
               Make Payment
             </NavLink>
@@ -73,6 +73,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
         </>
+        
       )}
       {/* shared nav links */}
       <div className="divider"></div>

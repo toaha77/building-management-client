@@ -6,19 +6,28 @@ import { useNavigate } from "react-router-dom";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import UseAuth from "../../../Hooks/useAuth";
 import UseCart from "../../../Hooks/UseCart";
-
+ import PaymentFrom from "./PaymentForm";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  console.log(clientSecret);
-  const [transactionId, setTransactionId] = useState("");
+   const [transactionId, setTransactionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = UseAxiosSecure();
   const { user } = UseAuth();
+  const [apartmentData, setApartmentData] = useState([]);
   const [cart, refetch] = UseCart();
   const navigate = useNavigate();
+ 
+
+  useEffect(()=> {
+      axiosSecure.get(`/carts?email=${user.email}`)
+      .then(res=> {
+        setApartmentData(res.data);
+        console.log(res.data);
+      })
+  }, [axiosSecure, user?.email])
 
   const totalPrice = cart.reduce((total, item) => total + item.rent, 0);
   console.log(totalPrice);
@@ -27,11 +36,12 @@ const CheckoutForm = () => {
       axiosSecure
         .post("/create-payment-intent", { price: totalPrice })
         .then((res) => {
-          console.log(res.data.clientSecret);
-          setClientSecret(res.data.clientSecret);
+           setClientSecret(res.data.clientSecret);
         });
     }
   }, [axiosSecure, totalPrice]);
+
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,7 +70,7 @@ const CheckoutForm = () => {
       setError("");
     }
 
-     const { paymentIntent, error: confirmError } =
+    const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
@@ -73,25 +83,24 @@ const CheckoutForm = () => {
 
     if (confirmError) {
       console.log("confirm error");
-      setError(error)
+      setError(error);
     } else {
-       if (paymentIntent.status === "succeeded") {
-          setTransactionId(paymentIntent.id);
+      if (paymentIntent.status === "succeeded") {
+        setTransactionId(paymentIntent.id);
 
-         const payment = {
+        const payment = {
           pets,
           email: user.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
-          date: new Date(),  
+          date: new Date(),
           cartIds: cart.map((item) => item._id),
-           
+
           status: "pending",
-          
         };
 
-         const res = await axiosSecure.post("/payments", payment);
-         refetch();
+        const res = await axiosSecure.post("/payments", payment);
+        refetch();
         if (res.data?.paymentResult?.insertedId) {
           Swal.fire({
             position: "top-center",
@@ -109,34 +118,8 @@ const CheckoutForm = () => {
   return (
     <div className="container mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="flex gap-2 mb-4">
-          <div className="form-control mb-2 w-1/2">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              readOnly
-              defaultValue={user?.email}
-              placeholder="email"
-              className="input input-bordered"
-            />
-          </div>
-          <div className="form-control w-1/2">
-            <label className="mb-3" htmlFor="pet-select">Choose a Month:</label>
-
-            <select className="input input-bordered" name="pets">
-              <option  value="">--Please choose a Month--</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-            </select>
-          </div>
-        </div>
+        
+        <PaymentFrom apartmentData={apartmentData}></PaymentFrom>
 
         <CardElement
           className=""
