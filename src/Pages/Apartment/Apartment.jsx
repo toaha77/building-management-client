@@ -17,13 +17,13 @@ const Apartment = () => {
      
     const pages = [...Array(numberOfPages).keys()];
     useEffect(()=>{
-       fetch(`http://localhost:3000/page-apartment?page=${currentPage}&size=${itemsPerPage}`)
+       fetch(`https://building-management-server-phi.vercel.app/page-apartment?page=${currentPage}&size=${itemsPerPage}`)
        .then(res => res.json())
        .then(data => setApartments(data))
     }, [currentPage,itemsPerPage])
 
     useEffect(()=>{
-        fetch('http://localhost:3000/apartments')
+        fetch('https://building-management-server-phi.vercel.app/apartments')
         .then(res => res.json())
         .then(data => setApartments(data))
      }, [])
