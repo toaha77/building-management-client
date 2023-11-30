@@ -1,12 +1,12 @@
+
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import UseCart from "../../Hooks/UseCart";
-
 const Cart = () => {
-  const [cart] = UseCart();
+  const [cart, refetch] = UseCart();
    const totalRent = cart.reduce((acc, cur) => acc + cur.rent, 0);
   const axiosSecure = UseAxiosSecure();
 
@@ -23,7 +23,8 @@ const Cart = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
-             Swal.fire({
+            refetch();
+            Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
               icon: "success",
