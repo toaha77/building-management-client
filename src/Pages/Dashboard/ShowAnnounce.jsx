@@ -4,7 +4,7 @@ const ShowAnnounce = () => {
    const [announce, setAnnounce] = useState([]);
    
    useEffect(()=>{
-    fetch('https://building-management-server-phi.vercel.app/announcement')
+    fetch('http://localhost:3000/announcement')
     .then(res => res.json())
     .then(data => setAnnounce(data))
    }, [])

@@ -30,9 +30,9 @@ import ShowAnnounce from "../Pages/Dashboard/ShowAnnounce";
             {
                 path: '/apartment',
                 element: <Apartment></Apartment>,
-                 loader:()=> fetch('https://building-management-server-phi.vercel.app/apartmentCount') 
+                 loader:()=> fetch('http://localhost:3000/apartmentCount') 
 
-                // loader: ()=> fetch('https://building-management-server-phi.vercel.app/apartments')
+                // loader: ()=> fetch('http://localhost:3000/apartments')
 
             },
              
