@@ -16,6 +16,7 @@ import UserProfile from "../Pages/Dashboard/UserProfile";
 import Announcements from "../Pages/Dashboard/Announcements";
 import AdminRoute from "./AdminRoute";
 import ShowAnnounce from "../Pages/Dashboard/ShowAnnounce";
+import Contact from "../Contact/Contact";
  
  const Route = createBrowserRouter([
      {
@@ -35,6 +36,10 @@ import ShowAnnounce from "../Pages/Dashboard/ShowAnnounce";
                 // loader: ()=> fetch('http://localhost:3000/apartments')
 
             },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
+            }
              
         ]
      },
@@ -63,6 +68,7 @@ import ShowAnnounce from "../Pages/Dashboard/ShowAnnounce";
                 path: 'announce',
                 element: <ShowAnnounce></ShowAnnounce>
             },
+            
 
             // admin route
             {

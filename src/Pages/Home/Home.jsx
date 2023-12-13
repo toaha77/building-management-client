@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Coupon from "./Coupon";
 import Location from "./Location";
 import Faq from "../../FAQ/FAQ";
+import Contact from "../../Contact/Contact";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <About></About>
         <Location></Location>
         <Faq></Faq>
+        <Contact></Contact>
       </div>
     </div>
   );
