@@ -4,7 +4,7 @@ const Location = () => {
   return (
     <div className="mt-6">
         <h2 className="text-center font-bold text-4xl mb-6">Venue location</h2>
-     <div className="flex justify-between">
+     <div className="hero-content flex-col lg:flex-row justify-between">
      <div className="space-y-12 mx-auto">
         <h2 className="font-bold text-2xl">RENTALPLACE Call Center</h2>
         <div className="flex gap-1">

@@ -13,7 +13,7 @@ const SingleApartment = ({ apartment }) => {
   const axiosSecure = UseAxiosSecure();
   const { user } = UseAuth();
 
-  const handleAddToCart = (building) => {
+  const handleCereateAgrement = (building) => {
     if (user && user.email) {
       //send cart item to the database
       const cartItem = {
@@ -71,7 +71,7 @@ const SingleApartment = ({ apartment }) => {
           </div>
           <div className="mx-auto">
             <button
-              onClick={() => handleAddToCart(apartment)}
+              onClick={() => handleCereateAgrement(apartment)}
               className="btn bg-green-500 hover:bg-green-500"
             >
               Agreement
